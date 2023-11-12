@@ -13,6 +13,28 @@ public class Main {
                 manager.deleteRow();
             } else if (input == 3) {
                 manager.transposeMatrix();
+            } else if (input == 4) {
+                manager.deleteDia();
+            } else if (input == 5) {
+                manager.replaceRow();
+            } else if (input == 6) {
+                manager.searchElem();
+            } else if (input == 7) {
+                manager.calculateDeterminant();
+            } else if (input == 8) {
+                manager.multiMatrix();
+            } else if (input == 9) {
+                manager.swapRowsMatrix();
+            } else if (input == 10) {
+                manager.sortShell();
+            } else if (input == 11) {
+                manager.sortBubble();
+            } else if (input == 12) {
+                manager.sortInsert();
+            } else if (input == 13) {
+                manager.sortSelect();
+            } else if (input == 14) {
+                manager.sortHeap();
             }
             printMenu();
             input = scanner.nextInt();
@@ -29,7 +51,7 @@ public class Main {
                 "6. Найти в матрице элемент кратный значению считанного с клавиатуры и заменить весь столбец или строку на нули. Если следующий элемент в массиве чётный, то строку, если не чётный, то столбец.\n" +
                 "7. Найти детерминант матрицы считанной с клавиатуры.\n" +
                 "8. Выполнить произведение матрицы считанной из файла, на матрицу считанную с клавиатуры.\n" +
-                "9. В матрице считанной из файла, поменять местами строку, с номером считанным с клавиатуры со строкой в файле.\n" +
+                "9. В матрице считанной из файла, поменять местами строку, с номером считанным с клавиатуры.\n" +
                 "10. Выполнить сортировку матрицы методом Шелла\n" +
                 "11. Выполнить сортировку матрицы методом пузырька\n" +
                 "12. Выполнить сортировку матрицы методом вставок\n" +
