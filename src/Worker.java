@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -320,7 +322,7 @@ public class Worker {
         return transArrayToMatrix(matrix, array);
     }
 
-    public void heap(int[] arr, int n, int index) {
+    private void heap(int[] arr, int n, int index) {
         int largest = index;
         int leftChild = 2 * index + 1;
         int rightChild = 2 * index + 2;
@@ -338,4 +340,43 @@ public class Worker {
         }
     }
 
+    public void printRow(String[] row) {
+        for (String cell : row) {
+            System.out.print("| " + centerText(cell, 12) + " ");
+        }
+        System.out.println("|");
+    }
+
+    public void printHorizontalLine(int columns) {
+        for (int i = 0; i < columns; i++) {
+            System.out.print("+--------------");
+        }
+        System.out.println("+");
+    }
+
+    public String centerText(String text, int width) {
+        return String.format("%-" + width + "s", String.format("%" + (text.length() + (width - text.length()) / 2) + "s", text));
+    }
+
+    public List<String> readFromFile(String name) {
+        File file = new File(absPath + separator + name);
+        List<String> lines = new ArrayList<>();
+        try {
+            Scanner fileScanner = new Scanner(file);
+            if(!fileScanner.hasNext()) {
+                System.out.println("Файл пустой!");
+                return lines;
+            }
+            String line = fileScanner.nextLine();
+            lines.add(line);
+            while (fileScanner.hasNext()) {
+                line = fileScanner.nextLine();
+                lines.add(line);
+            }
+            fileScanner.close();
+        } catch (IOException ex) {
+            System.out.println("Не удалось считать файл: " + file);
+        }
+        return lines;
+    }
 }
